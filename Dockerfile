@@ -7,4 +7,4 @@ RUN pip install --upgrade pip
 
 RUN pip install requests
 
-CMD ["python", "./app.py"]
+CMD ["python", ".app.py"]
