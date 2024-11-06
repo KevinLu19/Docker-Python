@@ -1,4 +1,3 @@
-from src.mangadex_api import manga_id
 from src.mangadex_api import manga_chapters
 
 
