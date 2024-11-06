@@ -1,6 +1,6 @@
 FROM python:3.10
 
-ADD . .
+COPY . .
 
 # upgrade pip before install
 RUN pip install --upgrade pip
