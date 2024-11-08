@@ -1,1 +1,11 @@
 version: '3'
+services:
+  # Main container for the project.
+  manga-info:
+    build: .
+    container_name: manga_info
+    working_dir: /app
+    command: python app.py
+  # Redis container for project
+  redis-server:
+    image: 'redis'
