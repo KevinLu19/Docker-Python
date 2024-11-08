@@ -7,9 +7,10 @@ WORKDIR /app
 COPY requirements.txt .
 
 # upgrade pip before install
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN pip install requests
+# Combinging all pip command into one RUN command
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt && \
+    pip install requests
 
 # Set PYTHONPATH so python can find "src" directory
 ENV PYTHONPATH=/app/src:$PYTHONPATH
