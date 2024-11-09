@@ -18,4 +18,4 @@ ENV PYTHONPATH=/app/src:$PYTHONPATH
 COPY . .
 
 # Run test with pytest first, then start application if test passes
-CMD ["pytest", "--maxfail=1", "--disable-warnings", "-v"] && python app.py
+CMD /bin/sh -c "pytest --maxfail=1 --disable-warnings -v && python app.py"
