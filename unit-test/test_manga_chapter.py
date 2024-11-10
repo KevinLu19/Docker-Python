@@ -1,4 +1,3 @@
-import pytest
 import requests
 
 BASE_URL = "https://api.mangadex.org"
@@ -24,6 +23,4 @@ def test_get_manga_by_name():
         manga_info = manga_info_response.json()
         print (manga_info)
         
-        assert result["data"] is not None
-    else:
-        raise None
+    assert result["data"] is not None
