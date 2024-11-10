@@ -11,11 +11,8 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
-# Set PYTHONPATH so python can find "src" directory
-ENV PYTHONPATH=/app/src:$PYTHONPATH
-
 # Copy application code
 COPY . .
 
-# Run test with pytest first, then start application if test passes
-CMD /bin/sh -c "pytest --maxfail=1 --disable-warnings -v && python app.py"
+# Run pytest
+CMD ["pytest"]

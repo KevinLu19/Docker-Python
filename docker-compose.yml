@@ -3,9 +3,22 @@ services:
   # Main container for the project.
   manga-info:
     build: .
+    stdin_open: true          # Keep STDIN open
+    tty: true                 # Allocate a pseudo TTY
     container_name: manga_info
     working_dir: /app
+    volumes:
+      - .:/app
     command: python app.py
-  # Redis container for project
-  redis-server:
-    image: 'redis'
+  
+  test:
+    build: .
+    volumes:
+      - .:/app
+    command: pytest --maxfail=1 --disable-warnings      # Runs pytest as the command
+    depends_on:
+      - manga-info
+  
+  # # Redis container for project
+  # redis-server:
+  #   image: 'redis'
