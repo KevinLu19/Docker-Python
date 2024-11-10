@@ -3,6 +3,8 @@ services:
   # Main container for the project.
   manga-info:
     build: .
+    stdin_open: true          # Keep STDIN open
+    tty: true                 # Allocate a pseudo TTY
     container_name: manga_info
     working_dir: /app
     command: python app.py
