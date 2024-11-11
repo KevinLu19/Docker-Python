@@ -15,7 +15,7 @@ services:
     build: .
     volumes:
       - .:/app
-    command: pytest --maxfail=1 --disable-warnings      # Runs pytest as the command
+    command: pytest -s --maxfail=1 --disable-warnings      # Runs pytest as the command
     depends_on:
       - manga-info
   
