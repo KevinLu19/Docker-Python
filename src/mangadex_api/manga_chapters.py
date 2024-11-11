@@ -12,23 +12,14 @@ class MangaChapter:
     # Public Methods
     # ----------------------------------------
     
+    # This returns back the id of the manga using readable manga name.
     def GetMangaByName(self, name: str):
-        full_manga_url = f"{self.BASE_URL}/manga?title={name}"
-        response = requests.get(full_manga_url)
-        result = response.json()
-
-        # Check results
-        if result["data"]:
-            manga_id = result["data"][0]["id"]
-
-            manga_info_url = f"https://api.mangadex.org/manga/{manga_id}"
-            manga_info_response = requests.get(manga_info_url)
-            manga_info = manga_info_response.json()
-            print (manga_info)
-            
-            return manga_info
-        else:
-            return None
+        request = requests.get(f"{self.BASE_URL}/manga", params={"title": name})
+        
+        if request:
+            result_data = [manga["id"] for manga in request.json()["data"]]
+            print (result_data)
+        
 
     # Handles the request module requests.
     def get_request_function(self, manga_id: str):
