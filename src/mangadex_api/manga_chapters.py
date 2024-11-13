@@ -14,12 +14,23 @@ class MangaChapter:
     
     # This returns back the id of the manga using readable manga name.
     def GetMangaByName(self, name: str):
-        request = requests.get(f"{self.BASE_URL}/manga", params={"title": name})
-        
+        # Limit only 5 anime (top 5) of the manga name series.
+        request = requests.get(f"{self.BASE_URL}/manga", params={"title": name, "limit": 5})
+        response = request.json()
+
         if request:
-            result_data = [manga["id"] for manga in request.json()["data"]]
-            print (result_data)
-        
+            for manga in response["data"]:
+                attributes = manga["attributes"]["title"]
+
+                print (attributes["en"])
+
+            for status in response["data"]:
+                manga_status = status["attributes"]["status"]
+                print("Status:", manga_status)
+            
+            for chpt in response["data"]:
+                last_chpt =  chpt["attributes"]["lastChapter"]
+                print("Last Chapter:", last_chpt)
 
     # Handles the request module requests.
     def get_request_function(self, manga_id: str):
