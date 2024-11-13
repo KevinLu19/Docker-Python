@@ -26,7 +26,4 @@ def test_get_manga_by_name():
             last_chpt =  chpt["attributes"]["lastChapter"]
             print("Last Chapter:", last_chpt)
         
-        
-        
-        
     assert request.json()["data"] is not None
