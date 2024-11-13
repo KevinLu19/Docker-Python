@@ -19,6 +19,6 @@ services:
     depends_on:
       - manga-info
   
-  # # Redis container for project
-  # redis-server:
-  #   image: 'redis'
+  # Redis container for project. Using default port.
+  redis:
+    image: "redis:5.0"
