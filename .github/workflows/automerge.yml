@@ -9,7 +9,7 @@ on:
 
 jobs:
   auto-merge:
-    runs-on: ubunut-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check code
