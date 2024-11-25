@@ -1,7 +1,7 @@
 FROM python:3.10
 
-# Set working directory
-WORKDIR /app
+# Set working directory for pytest in /dev
+WORKDIR /dev
 
 # Copy requirements and install dependencies
 COPY requirements.txt .
@@ -11,8 +11,4 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
-# Copy application code
-COPY . .
-
-# Run pytest
-CMD ["python app.py"]
+CMD ["pytest"]
