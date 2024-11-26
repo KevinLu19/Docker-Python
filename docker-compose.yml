@@ -21,7 +21,7 @@ services:
 
   # Testing dockerfile in src/unit-test
   test:
-    build: .src/unit-test
+    build: src/unit-test
     working_dir : /dev
     command: pytest -s --maxfail=1 --disable-warnings
     depends_on:

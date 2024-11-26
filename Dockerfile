@@ -14,5 +14,5 @@ RUN pip install --upgrade pip && \
 # Copy application code
 COPY . .
 
-# Run pytest
-CMD ["python app.py"]
+# Run app.py
+CMD ["python", "app.py"]
