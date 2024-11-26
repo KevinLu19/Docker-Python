@@ -21,10 +21,6 @@ services:
 
   # Testing dockerfile in src/unit-test
   test:
-    build: src/unit-test
+    build: ./unit-test
     working_dir : /dev
-    command: pytest -s --maxfail=1 --disable-warnings
-    depends_on:
-      - manga-info
-    volumes:
-      - .:/app
+    command: pytest -s --maxfail=1 --disable-warnings /dev/unit-test
