@@ -6,7 +6,8 @@ WORKDIR /app
 # upgrade pip before install
 # and doing a pip install on pytest.
 RUN pip install --upgrade pip && \
-    pip install -U pytest
+    pip install -U pytest && \
+    pip install requests
 
 COPY . /app/
 
