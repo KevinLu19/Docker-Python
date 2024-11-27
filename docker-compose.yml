@@ -1,4 +1,3 @@
-version: '3'
 services:
   # Main container for the project.
   manga-info:
@@ -8,7 +7,7 @@ services:
     container_name: manga_info
     working_dir: /app
     volumes:
-      - .:/app
+      - main_proj:/app
     command: python app.py
   
   # test:
@@ -22,5 +21,10 @@ services:
   # Testing dockerfile in src/unit-test
   test:
     build: ./unit-test
-    working_dir : /dev
-    command: pytest -s --maxfail=1 --disable-warnings /dev/unit-test
+    working_dir : /app
+    command: pytest
+    volumes:
+      - main_proj:/app
+
+volumes:
+  main_proj:
